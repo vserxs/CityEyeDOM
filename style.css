@@ -14,8 +14,9 @@ body {
     align-items: center;
     background-color: hsl(253, 49%, 11%);
     color: rgb(248, 255, 247);
-    padding: 15px 30px;
+    padding: 15px 40px;
     font-family: "Saira", sans-serif;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .nav-links,
@@ -34,10 +35,30 @@ body {
     text-decoration: none;
 }
 
+.report-button {
+    padding: 12px 20px;
+    background-color: #2878e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0,3 ease;
+}
+
+.report-button:hover {
+    background-color: #1a5bb8;
+}
+
+.nav-links{
+    font-weight: bolder;
+}
+
 .nav-links a:hover,
 .right-links a:hover {
     color: rgb(253, 255, 253);
     text-decoration: underline;
+    
+
 }
 
 .logo {
@@ -62,7 +83,7 @@ main {
 /* ---- Map ---- */
 
 .map-page {
-    background-color: #f5f7fb;
+    background-color: #ffffff;
     min-height: calc(100vh - 70px);
     padding: 40px 50px;
 }
@@ -104,7 +125,6 @@ main {
 .marker {
     position: absolute;
     font-size: 32px;
-    transform: translate(-50%, -50%);
 }
 
 .marker-red {
@@ -188,20 +208,7 @@ main {
 }
 
 
-/* ---- Buttons ---- */
 
-.report-button {
-    padding: 12px 20px;
-    background-color: #2878e8;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.report-button:hover {
-    background-color: #1a5bb8;
-}
 
 
 /* ---- Register Form ---- */
@@ -266,27 +273,70 @@ main {
     color: green;
 }
 
+.problem-section {
+    padding: 50px 40px;
+    text-align: center;
+    background-color: #f5f8fc;
+}
+.problem-section h2{
+    font-size: 25px;
+    color: #000000;
+    margin-bottom: 30px;
+    text-align: center;
+}
 .problem-images {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    margin: 50px auto;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 25px;
 }
-
-.problem-image {
-    text-align: center;
+.problem-card{
+    display: flex;
+    flex-direction: column;
+    width:300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08)
 }
-
-.problem-image img {
-    width: 180px;
-    height: 180px;
+.problem-card img{
+    width: 100%;
+    height: 190px;
     object-fit: cover;
-    border-radius: 50%;
 }
 
-.problem-image h3 {
-    margin-top: 15px;
-    color: #172033;
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    padding: 20px;
+}
+.card-content h3{
+    color: #000000;
+    margin-bottom: 12px;
+}
+.card-content p{
+    color: #000000;
+    text-align: center;
+    line-height: 1,6;
+    margin-bottom: 20px;
+}
+.card-btn{
+    margin-top: auto;
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #036bda;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+.card-btn:hover{
+    background-color: #03da6b;
+}
+.problem-card:hover{
+    box-shadow: 0 10px 22px rgba(16, 52, 255, 0.08)
 }
 
 
@@ -366,44 +416,6 @@ input[type="submit"]:hover {
     background-color: #1a5bb8;
 }
 
-
-/* ---- Reports Table ---- */
-
-.content-table {
-    border-collapse: collapse;
-    margin: 25px auto;
-    font-size: 0.9em;
-    min-width: 400px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.content-table thead tr {
-    background-color: #030c45;
-    color: #ffffff;
-    text-align: left;
-    font-weight: bold;
-}
-
-.content-table th,
-.content-table td {
-    padding: 12px 15px;
-}
-
-.content-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
-
-.content-table tbody tr:nth-child(even) {
-    background-color: #e4e4e4;
-}
-
-.content-table tbody tr:last-of-type {
-    border-bottom: 2px solid #030c45;
-}
-
-
 /* ---- About Team ---- */
 
 .team-content {
@@ -453,6 +465,9 @@ color: #2878d4;
 font-weight: bold;
 }
 
+.team-title {
+    text-align: center;
+}
 
 
 
@@ -472,7 +487,7 @@ footer p {
 }   
 
 #main-title {
-    color: #172033;
+    color: #000000;
     text-align: center;
 }
 
@@ -484,4 +499,217 @@ ol {
 
 .welcome{
     margin-top: 60px;
+}
+
+/* GRID */
+    .grid-layout {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+    }
+
+    .grid-sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .grid-main {
+        padding: 20px;
+    }
+
+
+.grid-page {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+}
+
+.grid-page .navbar { 
+    grid-area: header; }
+
+.grid-page .sidebar { 
+    grid-area: sidebar; }
+
+.grid-page .reports-page { 
+    grid-area: main; }
+
+.grid-page footer { 
+    grid-area: footer; }
+
+.sidebar {
+    background-color: #c9cfff81;
+    padding: 30px 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    
+
+}
+.sidebar li {
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.sidebar a{
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+.allr{
+    background-color: #036bda;
+    padding: 5px 7px;
+    border-radius: 8px;
+    transition: background-color 0,3 ease;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    
+}
+
+.newr{
+    background-color: #a01a1a;
+    padding: 5px 7px;
+    border-radius: 8px;
+    transition: background-color 0,3 ease;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.inpr{
+    background-color: #c74504;
+    padding: 5px 7px;
+    border-radius: 8px;
+    transition: background-color 0,3 ease;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.rsl{
+    background-color: #2a7700;
+    padding: 5px 7px;
+    border-radius: 8px;
+    transition: background-color 0,3 ease;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.allr:hover{
+    background-color: #024082;
+}
+.newr:hover{
+    background-color:#550e0e
+}
+.inpr:hover{
+    background-color:#9a3400;
+}
+.rsl:hover{
+    background-color: #163f00;
+}
+
+
+.community{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.community h2{
+    color: #036bda;
+    margin-bottom:20px ;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.community h1{
+    font-size: 42px;
+    
+}
+
+.community p{
+    color: #969fa7;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.comtext{
+    text-align: center;
+    color: #000000;
+}
+
+.ucomtext{
+    color: #5d5d5d;
+    line-height:1.7 ;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* ---- Hall of Fame Card Styles (Grid 3x3) ---- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 0 30px;
+}
+
+.gallery-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover;
+}
+
+.gallery-info {
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gallery-info h3 {
+    margin: 0 0 5px 0;
+    color: #17132f;
+    font-size: 20px;
+}
+
+.gallery-info span {
+    color: #2878d4;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.gallery-info p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
 }
