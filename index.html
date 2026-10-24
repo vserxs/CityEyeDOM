@@ -158,13 +158,19 @@
 
         <div id="popupModal" class="modal-overlay">
             <div class="modal-card">
-                <span id="closePopupBtn" class="close-btn">&times;</span>
+                <button id="closePopupBtn"
+        class="close-btn"
+        type="button"
+        aria-label="Close subscription window">
+    &times;
+</button>
                 <h2>Subscribe to CityEye</h2>
                 <p>Get notified when new issues in your area are fixed!</p>
                 <form id="subscribeForm">
                     <input type="email" placeholder="Enter your email" required>
                     <input type="submit" value="Subscribe">
                 </form>
+                <p id="subscribeMessage" role="status" aria-live="polite"></p>
             </div>
         </div>
 
