@@ -213,6 +213,8 @@ document.addEventListener("keydown", function (event) {
 
 // TASK 5: Keyboard Navigation
 
+// TASK 5–6: Keyboard Navigation with switch
+
 const cityEyeNavLinks = Array.from(
     document.querySelectorAll(".nav-links a")
 );
@@ -221,24 +223,21 @@ cityEyeNavLinks.forEach(function (link, index) {
     link.addEventListener("keydown", function (event) {
         let nextIndex;
 
+        switch (event.key) {
+            case "ArrowRight":
+            case "ArrowDown":
+                nextIndex = (index + 1) % cityEyeNavLinks.length;
+                break;
 
-        if (
-            event.key === "ArrowRight" ||
-            event.key === "ArrowDown"
-        ) {
-            nextIndex = (index + 1) % cityEyeNavLinks.length;
-        }
+            case "ArrowLeft":
+            case "ArrowUp":
+                nextIndex =
+                    (index - 1 + cityEyeNavLinks.length) %
+                    cityEyeNavLinks.length;
+                break;
 
-
-        else if (
-            event.key === "ArrowLeft" ||
-            event.key === "ArrowUp"
-        ) {
-            nextIndex =
-                (index - 1 + cityEyeNavLinks.length) %
-                cityEyeNavLinks.length;
-        } else {
-            return;
+            default:
+                return;
         }
 
         event.preventDefault();
