@@ -50,7 +50,7 @@ document.getElementById('registerForm')?.addEventListener('submit', function (e)
 
     check('name', !document.getElementById('name')?.value.trim(), 'Name is required.');
     check('surname', !document.getElementById('surname')?.value.trim(), 'Surname is required.');
-    check('email', !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email), 'Valid email required.');
+    check('email',!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),'Valid email required.');
     check('password', pass.length < 6, 'Min 6 characters required.');
     check('confirm_password', !confirm || pass !== confirm, 'Passwords do not match.');
 
@@ -93,7 +93,7 @@ if (themeButton && themeIcon) {
         
         themeIcon.textContent = isDark ? "☀️" : "🌙";
 
-        s
+        
         themeButton.setAttribute("aria-pressed", String(isDark));
         themeButton.setAttribute(
             "aria-label",
@@ -128,43 +128,6 @@ if (dateTimeElement) {
     updateDateTime();
     setInterval(updateDateTime, 1000);
 }
-
-// Subscribe
-const modal = document.getElementById('popupModal');
-    const openBtn = document.getElementById('openPopupBtn');
-    const closeBtn = document.getElementById('closePopupBtn');
-    const subscribeForm = document.getElementById('subscribeForm');
-
-
-    openBtn?.addEventListener('click', () => {
-        if (modal) modal.style.display = 'flex';
-    });
-
-
-    closeBtn?.addEventListener('click', () => {
-        if (modal) modal.style.display = 'none';
-    });
-
-
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-
-    subscribeForm?.addEventListener('submit', (event) => {
-        event.preventDefault();
-        alert('Thank you for subscribing!');
-        if (modal) modal.style.display = 'none';
-        subscribeForm.reset();
-    }); 
-
-    let number = Math.floor(Math.random()*6)-1;
-    console.log(number);
-
-    let num = Math.floor(Math.random()*(999-99+1))+99;
-    console.log(num)
 
 // TASK 3: Subscription Popup
 
@@ -245,4 +208,40 @@ document.addEventListener("keydown", function (event) {
     ) {
         closeSubscribePopup();
     }
+});
+
+
+// TASK 5: Keyboard Navigation
+
+const cityEyeNavLinks = Array.from(
+    document.querySelectorAll(".nav-links a")
+);
+
+cityEyeNavLinks.forEach(function (link, index) {
+    link.addEventListener("keydown", function (event) {
+        let nextIndex;
+
+
+        if (
+            event.key === "ArrowRight" ||
+            event.key === "ArrowDown"
+        ) {
+            nextIndex = (index + 1) % cityEyeNavLinks.length;
+        }
+
+
+        else if (
+            event.key === "ArrowLeft" ||
+            event.key === "ArrowUp"
+        ) {
+            nextIndex =
+                (index - 1 + cityEyeNavLinks.length) %
+                cityEyeNavLinks.length;
+        } else {
+            return;
+        }
+
+        event.preventDefault();
+        cityEyeNavLinks[nextIndex].focus();
+    });
 });
