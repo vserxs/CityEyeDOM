@@ -12,7 +12,7 @@
     <nav class="navbar">
             
             <div class="logo">
-            <img src="photo/logo.png" 
+            <img src="photo/logo.jpg" 
                 alt="CityEye Logo"></div>
 
                 <ul class="nav-links">
@@ -22,10 +22,20 @@
                 <li><a href="about.html">About the Team</a></li>
                 <li><a href="halloffame.html" class="hof">Hall of Fame</a></li>
                 </ul>
-            <ul class = "right-links">
-                <li><a href="login.html" class="login-link">Log in</a></li>
-                <li><a href="report.html" class ="report-button">Report a problem</a></li>
-            </ul>
+            <ul class="right-links">
+    <li><a href="login.html" class="login-link">Log in</a></li>
+    <li><a href="report.html" class="report-button">Report a problem</a></li>
+    <li>
+        <button
+            id="change-background-btn"
+            type="button"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+        >
+            <span id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+    </li>
+</ul>
             </nav>
 
 
@@ -85,9 +95,16 @@
     </main>
 
 
-    <footer>
-        <p>Team members: Arsen Sagidanov, Alisher Balyasnyy</p>
-    </footer>
+    
+<footer>
+    <div class="cityeye-clock">
+        <span class="clock-label">Current Date and Time</span>
+        <time id="current-date-time">Loading...</time>
+    </div>
+
+    <p>Team members: Arsen Sagidanov, Alisher Balyasnyy</p>
+</footer>
+<script src="script.js"></script>
 
 </body>
 
