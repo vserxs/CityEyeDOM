@@ -10,21 +10,32 @@
 <nav class="navbar">
             
             <div class="logo">
-            <img src="photo/logo.png" 
+            <img src="photo/logo.jpg" 
                 alt="CityEye Logo"></div>
 
                 <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="map.html">Map</a></li>
-                <li><a href="reports.html">Reports</a></li>
+                  <li><a href="reports.html">Reports</a></li>
                 <li><a href="about.html">About the Team</a></li>
                 <li><a href="halloffame.html" class="hof">Hall of Fame</a></li>
                 </ul>
-            <ul class = "right-links">
-                <li><a href="login.html" class="login-link">Log in</a></li>
-                <li><a href="report.html" class ="report-button">Report a problem</a></li>
-            </ul>
-            </nav>
+           
+<ul class="right-links">
+    <li><a href="login.html" class="login-link">Log in</a></li>
+    <li><a href="report.html" class="report-button">Report a problem</a></li>
+    <li>
+        <button
+            id="change-background-btn"
+            type="button"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+        >
+            <span id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+    </li>
+</ul>
+</nav>
 <main>
 <div class="welcome">
     <h1>Welcome to
@@ -82,9 +93,94 @@
     <li>Wait until the problem is resolved</li>
 </ol>
 </div>
+<section class="faq-section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <p class ="faq-description">
+        Find answers to common questions about CityEye.
+    </p>
+
+    <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+            What is CityEye?
+            <span class="faq-icon">+</span>
+        </button> 
+        <div class="faq-answer">
+            <div class="faq-answer-content">
+                CityEye is a website that helps people report
+                city problems and learn about local issues.
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+            How can I report a problem?
+            <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+            <div class="faq-answer-content">
+                Open the Report a Problem page and fill out
+                the form with information about the issue.
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+            Can I view reported problems?
+            <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+            <div class="faq-answer-content">
+                Yes. Visit the Reports page to see information
+                about reported city problems.
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+            Why is CityEye useful?
+            <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+            <div class="faq-answer-content">
+                CityEye makes it easier for people to share
+                information about problems in their city.
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="text-align: center; margin: 40px 0;">
+            <button id="openPopupBtn" type="button" class="card-btn">Subscribe for Updates</button>
+        </div>
+
+        <div id="popupModal" class="modal-overlay">
+            <div class="modal-card">
+                <span id="closePopupBtn" class="close-btn">&times;</span>
+                <h2>Subscribe to CityEye</h2>
+                <p>Get notified when new issues in your area are fixed!</p>
+                <form id="subscribeForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <input type="submit" value="Subscribe">
+                </form>
+            </div>
+        </div>
+
 </main>
+
+
 <footer>
-        <p>Team members: Arsen Sagidanov, Alisher Balyasnyy</p>
-    </footer>
+    <div class="cityeye-clock">
+        <span class="clock-label">Current Date and Time</span>
+        <p id="current-time-display" class="date-display"></p>
+        <time id="current-date-time">Loading...</time>
+    </div>
+
+    <p>Team members: Arsen Sagidanov, Alisher Balyasnyy</p>
+</footer>
+<script src="script.js"></script>
+
 </body>
 </html>

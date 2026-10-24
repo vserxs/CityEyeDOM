@@ -3,11 +3,24 @@ const faqQuestions = document.querySelectorAll(".faq-question");
 
 faqQuestions.forEach(function (question) {
     question.addEventListener("click", function () {
-        const faqItem =  question.closest(".faq-item");
+        const faqItem = question.closest(".faq-item");
         const isOpen = faqItem.classList.contains("active");
 
-        faqItem.classList.toggle("active", !isOpen);
-        question.setAttribute("aria-expanded", String(!isOpen));
+        // Close all open FAQ items
+        document.querySelectorAll(".faq-item.active").forEach(function (item) {
+            item.classList.remove("active");
+
+            const itemQuestion = item.querySelector(".faq-question");
+
+            if (itemQuestion) {
+                itemQuestion.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        if (!isOpen) {
+            faqItem.classList.add("active");
+            question.setAttribute("aria-expanded", "true");
+        }
     });
 });
 
@@ -152,3 +165,84 @@ const modal = document.getElementById('popupModal');
 
     let num = Math.floor(Math.random()*(999-99+1))+99;
     console.log(num)
+
+// TASK 3: Subscription Popup
+
+const openPopupBtn = document.getElementById("openPopupBtn");
+const popupModal = document.getElementById("popupModal");
+const closePopupBtn = document.getElementById("closePopupBtn");
+const subscribeForm = document.getElementById("subscribeForm");
+const subscribeMessage = document.getElementById("subscribeMessage");
+
+const subscribeEmail = subscribeForm?.querySelector(
+    'input[type="email"]'
+);
+
+function openSubscribePopup() {
+    if (!popupModal) return;
+
+    popupModal.classList.add("is-open");
+    popupModal.setAttribute("aria-hidden", "false");
+
+    if (subscribeMessage) {
+        subscribeMessage.textContent = "";
+    }
+
+    subscribeEmail?.focus();
+}
+
+function closeSubscribePopup() {
+    if (!popupModal) return;
+
+    popupModal.classList.remove("is-open");
+    popupModal.setAttribute("aria-hidden", "true");
+
+    openPopupBtn?.focus();
+}
+
+// Open the popup
+openPopupBtn?.addEventListener("click", openSubscribePopup);
+
+// Close using the X button
+closePopupBtn?.addEventListener("click", closeSubscribePopup);
+
+// Handle form submission
+function handleSubscribeSubmit(event) {
+    event.preventDefault();
+
+    const email = subscribeEmail?.value.trim() || "";
+
+    if (!email || !subscribeEmail.checkValidity()) {
+        if (subscribeMessage) {
+            subscribeMessage.textContent =
+                "Please enter a valid email address.";
+        }
+        return;
+    }
+
+    if (subscribeMessage) {
+        subscribeMessage.textContent =
+            `Thank you for subscribing, ${email}!`;
+    }
+
+    subscribeForm.reset();
+}
+
+subscribeForm?.addEventListener("submit", handleSubscribeSubmit);
+
+// Close when clicking the background
+popupModal?.addEventListener("click", function (event) {
+    if (event.target === popupModal) {
+        closeSubscribePopup();
+    }
+});
+
+// Close with Escape
+document.addEventListener("keydown", function (event) {
+    if (
+        event.key === "Escape" &&
+        popupModal?.classList.contains("is-open")
+    ) {
+        closeSubscribePopup();
+    }
+});
