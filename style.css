@@ -1522,3 +1522,29 @@ body.dark-theme #main-title {
     color: #f9fafb;
 }
 
+/* Improve Dark Theme */
+
+body.dark-theme .problem-card,
+body.dark-theme .register-form,
+body.dark-theme .login-form,
+body.dark-theme .report-form,
+body.dark-theme .legend {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+
+body.dark-theme .problem-card h3,
+body.dark-theme .problem-card p,
+body.dark-theme .register-form h1,
+body.dark-theme .login-form p,
+body.dark-theme .legend span {
+    color: #f1f1f1;
+}
+
+body.dark-theme .register-form,
+body.dark-theme .login-form,
+body.dark-theme .report-form,
+body.dark-theme .problem-card,
+body.dark-theme .legend {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
