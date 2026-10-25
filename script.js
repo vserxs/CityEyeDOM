@@ -222,7 +222,7 @@ const cityEyeNavLinks = Array.from(
 cityEyeNavLinks.forEach(function (link, index) {
     link.addEventListener("keydown", function (event) {
         let nextIndex;
-
+        
         switch (event.key) {
             case "ArrowRight":
             case "ArrowDown":
