@@ -244,3 +244,24 @@ cityEyeNavLinks.forEach(function (link, index) {
         cityEyeNavLinks[nextIndex].focus();
     });
 });
+
+//hall of fame read more
+
+
+const hofReadMoreBtn = document.getElementById("hofReadMoreBtn");
+const hofMoreText = document.getElementById("hofMoreText");
+const hofJoin = document.querySelector(".hof-join");
+
+hofReadMoreBtn?.addEventListener("click", function () {
+    const isOpening = hofMoreText.hidden;
+
+    hofMoreText.hidden = !isOpening;
+    hofJoin.classList.toggle("hof-expanded", isOpening);
+
+    hofReadMoreBtn.innerHTML = isOpening
+        ? 'Read Less <span>←</span>'
+        : 'Read More <span>→</span>';
+
+    hofReadMoreBtn.setAttribute("aria-expanded", String(isOpening));
+});
+

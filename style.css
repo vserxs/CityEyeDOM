@@ -1633,3 +1633,214 @@ body.dark-theme .modal-card {
     }
 }
 
+
+/*animation */
+
+#reportsTableBody tr {
+    animation: reportAppear 0.35s ease both;
+    transition: transform 0.2s ease,
+                background-color 0.2s ease;
+}
+
+#reportsTableBody tr:hover {
+    transform: translateX(3px);
+    background-color: rgba(34, 197, 94, 0.12);
+}
+
+@keyframes reportAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sidebar a.active-filter {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #reportsTableBody tr {
+        animation: none;
+        transition: none;
+    }
+
+    #reportsTableBody tr:hover {
+        transform: none;
+    }
+}
+
+
+/* ========================================
+   TABLE RESPONSIVENESS */
+
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .content-table thead tr {
+            background-color: #030c45;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+                }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .content-table tbody tr:nth-child(even) {
+            background-color:#a19dfa90;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #030c45;
+        }
+
+        .status-new {
+           color: #ef4444;
+           font-weight: bold;
+        }
+
+        .status-progress {
+           color: #f59e0b;
+           font-weight: bold;
+        }
+
+        .status-resolved {
+           color: #22c55e;
+           font-weight: bold;
+        }
+
+.table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.content-table {
+    width: 100%;
+    min-width: 600px;
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    #reportsTableBody tr {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* ========================================
+   JOIN HALL OF FAME read more button
+======================================== */
+
+
+
+/* Hall of Fame — expand to the right */
+
+.hof-join {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: calc(100% - 60px);
+    max-width: 1400px;
+    margin: 60px auto;
+    overflow: hidden;
+    border: 1px solid #b8dce5;
+    border-radius: 18px;
+    background: #f4f8fb;
+    color: #253746;
+    box-shadow: 0 10px 30px rgba(24, 65, 88, 0.10);
+}
+
+.hof-join.hof-expanded {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.hof-join-main {
+    min-width: 0;
+    padding: 35px;
+    text-align: center;
+}
+
+#hofReadMoreBtn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #177f91;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#hofReadMoreBtn:hover {
+    background: #126575;
+    transform: translateY(-2px);
+}
+
+.hof-join-details {
+    min-width: 0;
+    padding: 35px;
+    border-left: 1px solid #d4e5eb;
+    animation: hofSlideIn 0.4s ease both;
+}
+
+.hof-join-details[hidden] {
+    display: none !important;
+}
+
+.hof-join-details h3 {
+    color: #168c9e;
+}
+
+@keyframes hofSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 650px) {
+    .hof-join {
+        width: calc(100% - 30px);
+    }
+
+    .hof-join.hof-expanded {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hof-join-details {
+        border-left: none;
+        border-top: 1px solid #d4e5eb;
+    }
+}
+
+
+
+
+
