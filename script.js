@@ -265,3 +265,38 @@ hofReadMoreBtn?.addEventListener("click", function () {
     hofReadMoreBtn.setAttribute("aria-expanded", String(isOpening));
 });
 
+// TASK 6: Greeting by Time
+
+const timeGreetingElement = document.getElementById("timeGreeting");
+
+function updateGreetingByTime() {
+    if (!timeGreetingElement) {
+        return;
+    }
+
+    const hour = new Date().getHours();
+    let greeting;
+
+    switch (true) {
+        case hour >= 5 && hour < 12:
+            greeting = "Good morning! ☀️";
+            break;
+
+        case hour >= 12 && hour < 18:
+            greeting = "Good evening! 🌙";
+            break;
+
+        default:
+            greeting = "Good evening! Welcome to CityEye!";
+            break;
+    }
+
+    timeGreetingElement.textContent = greeting;
+}
+
+// Display the greeting when the page loads
+updateGreetingByTime();
+
+// Update the greeting every minute
+setInterval(updateGreetingByTime, 60000);
+

@@ -1840,6 +1840,19 @@ body.dark-theme .modal-card {
     }
 }
 
+/* Assignment 5 - Greeting by Time */
+
+.time-greeting {
+    margin: 15px auto;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2878e8;
+}
+
+body.dark-theme .time-greeting {
+    color: #7dd3fc;
+}
+
 
 
 
